@@ -1,3 +1,3 @@
-import AsideFilter from './AsideFilter1'
+import AsideFilter from './AsideFilter'
 
 export default AsideFilter
