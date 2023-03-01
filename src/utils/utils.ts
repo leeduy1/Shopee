@@ -10,11 +10,11 @@ export function isAxiosUnprocessableEntityError<FormError>(error: unknown): erro
   return isAxiosError(error) && error.response?.status === HttpStatusCode.UnprocessableEntity
 }
 
-export function formatCurrent(currency: number) {
+export function formatCurrency(currency: number) {
   return new Intl.NumberFormat('de-DE').format(currency)
 }
 
-export function formatCurrentToSocialStyle(value: number) {
+export function formatNumberToSocialStyle(value: number) {
   return new Intl.NumberFormat('en', {
     notation: 'compact',
     maximumFractionDigits: 1
@@ -23,3 +23,5 @@ export function formatCurrentToSocialStyle(value: number) {
     .replace('.', '.')
     .toLocaleLowerCase()
 }
+
+export const rateSale = (original: number, sale: number) => Math.round(((original - sale) / original) * 100) + '%'

@@ -9,7 +9,7 @@ import path from 'src/constants/path'
 import { Category } from 'src/types/category.type'
 import { NoUndefinedField } from 'src/types/utils.type'
 import { Schema, schema } from 'src/utils/rules'
-import { queryConfig } from '../ProductList'
+import { queryConfig } from '../../ProductList'
 import RatingStars from '../RatingStars'
 
 interface Props {
