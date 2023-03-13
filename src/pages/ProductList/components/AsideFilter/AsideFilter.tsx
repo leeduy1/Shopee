@@ -5,6 +5,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { createSearchParams, Link, useNavigate } from 'react-router-dom'
 import Button from 'src/components/Button'
 import InputNumber from 'src/components/InputNumber'
+import InputV2 from 'src/components/InputV2'
 import path from 'src/constants/path'
 import { queryConfig } from 'src/hooks/useQueryConfig'
 import { Category } from 'src/types/category.type'
@@ -134,11 +135,10 @@ function AsideFilter({ queryConfig, categories }: Props) {
         <div>Khoảng giá</div>
         <form className='mt-2' onSubmit={onSubmit}>
           <div className='flex items-start'>
-            <Controller
+            {/* <Controller
               control={control}
               name='price_min'
               render={({ field }) => {
-                console.log(field)
                 return (
                   <InputNumber
                     type='text'
@@ -154,6 +154,18 @@ function AsideFilter({ queryConfig, categories }: Props) {
                   />
                 )
               }}
+            /> */}
+            <InputV2
+              name='price_min'
+              control={control}
+              type='number'
+              className='grow'
+              placeholder='₫ TỪ'
+              classNameInput='p-1 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm'
+              classNameError='hidden'
+              onChange={() => {
+                trigger('price_max')
+              }}
             />
 
             <div className='relative top-[-2.5px] mx-2 mt-2 shrink-0'>-</div>
@@ -167,7 +179,7 @@ function AsideFilter({ queryConfig, categories }: Props) {
                     className='grow'
                     placeholder='₫ ĐẾN'
                     classNameInput='p-1 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm'
-                    classNameError='hiden'
+                    classNameError='hidden'
                     {...field}
                     onChange={(event) => {
                       field.onChange(event)
