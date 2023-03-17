@@ -6,7 +6,7 @@ export type PurchaseListStatus = PurchaseStatus | 0
 
 export interface Purchase {
   _id: string
-  buy_acount: number
+  buy_count: number
   price: number
   price_before_discount: number
   status: PurchaseListStatus
