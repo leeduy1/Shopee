@@ -135,26 +135,6 @@ function AsideFilter({ queryConfig, categories }: Props) {
         <div>Khoảng giá</div>
         <form className='mt-2' onSubmit={onSubmit}>
           <div className='flex items-start'>
-            {/* <Controller
-              control={control}
-              name='price_min'
-              render={({ field }) => {
-                return (
-                  <InputNumber
-                    type='text'
-                    className='grow'
-                    placeholder='₫ TỪ'
-                    classNameInput='p-1 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm'
-                    classNameError='hiden'
-                    {...field}
-                    onChange={(event) => {
-                      field.onChange(event)
-                      trigger('price_max')
-                    }}
-                  />
-                )
-              }}
-            /> */}
             <InputV2
               name='price_min'
               control={control}
