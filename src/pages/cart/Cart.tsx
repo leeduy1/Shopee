@@ -311,7 +311,7 @@ export default function Cart() {
               src='https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9bdd8040b334d31946f49e36beaf32db.png'
               alt='no purchase'
             />
-            <div className='mt-5 font-bold text-gray-500'>Giỏ hàng của bạn còn trống</div>
+            <div className='mt-5 font-bold text-gray-400'>Giỏ hàng của bạn còn trống</div>
             <div className='mt-5 text-center'>
               <Link
                 to={path.home}
