@@ -1,19 +1,19 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import path from 'src/constants/path'
+import { AppContext } from 'src/contexts/app.context'
+import userImage from 'src/assets/images/user.svg'
 
-export default function userSideNav() {
+export default function UserSideNav() {
+  const { profile } = useContext(AppContext)
   return (
     <div>
       <div className='flex items-center border-b border-b-gray-200 py-4'>
         <Link to={path.profile} className='h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-black/10'>
-          <img
-            src='https://scontent.fdad3-1.fna.fbcdn.net/v/t39.30808-6/337050445_916604416151032_994900670465870285_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=5SX-9sipUM8AX8Ey-qS&_nc_ht=scontent.fdad3-1.fna&oh=00_AfB8hXw6EA77kOyMPSX7dGKl2rQURPEOZq6Xn-0Fg-Rdwg&oe=642300CB'
-            alt=''
-            className='h-full w-full object-cover'
-          />
+          <img src={profile?.avatar || userImage} alt='' className='h-full w-full object-cover' />
         </Link>
         <div className='flex-grow pl-4'>
-          <div className='mb-1 truncate font-semibold text-gray-600'>cdthanh</div>
+          <div className='mb-1 truncate font-semibold text-gray-600'>{profile?.email}</div>
           <Link to={path.profile} className='flex items-center capitalize text-gray-500'>
             <svg
               width={12}

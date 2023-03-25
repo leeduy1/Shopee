@@ -6,6 +6,7 @@ import path from 'src/constants/path'
 import { purchasesStatus } from 'src/constants/purchase'
 import { AppContext } from 'src/contexts/app.context'
 import Popover from '../Popover'
+import userImage from 'src/assets/images/user.svg'
 
 export default function NavHeader() {
   const { setIsAuthenticated, isAuthenticated, setProfile, profile } = useContext(AppContext)
@@ -87,11 +88,7 @@ export default function NavHeader() {
           }
         >
           <div className='mr-2 h-6 w-6 flex-shrink-0'>
-            <img
-              src='https://scontent.fdad3-1.fna.fbcdn.net/v/t39.30808-6/329125755_1402859130458307_8529354613630222404_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=3k4Bo7ou2IgAX8EaxJV&_nc_ht=scontent.fdad3-1.fna&oh=00_AfAuVVEux3vaww4aldThyGG5NjPIQQ6iSPjPWEdXi3bv6g&oe=63EEC9F4'
-              alt='avatar'
-              className='h-full w-full rounded-full object-cover'
-            />
+            <img src={profile?.avatar || userImage} alt='avatar' className='h-full w-full rounded-full object-cover' />
           </div>
           <div>{profile?.email}</div>
         </Popover>

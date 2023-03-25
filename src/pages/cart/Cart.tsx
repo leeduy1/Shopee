@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import produce from 'immer'
 import { keyBy } from 'lodash'
-import { useContext, useEffect, useMemo, useState } from 'react'
+import { useContext, useEffect, useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import purchaseApi from 'src/apis/purchase.api'
@@ -76,7 +76,7 @@ export default function Cart() {
         }) || []
       )
     })
-  }, [purchasesInCart, choosenPurchaseIdFromLocation])
+  }, [purchasesInCart, choosenPurchaseIdFromLocation, setExtendedPurchases])
 
   useEffect(() => {
     return () => {
