@@ -113,7 +113,6 @@ export default function Profile() {
   }, [profile, setValue])
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log('test')
     try {
       let avatarName = avatar
       if (file) {
