@@ -5,7 +5,11 @@ import Input from 'src/components/Input'
 import { schema, Schema } from 'src/utils/rules'
 import { yupResolver } from '@hookform/resolvers/yup'
 import authApi from 'src/apis/auth.api'
-import { omit } from 'lodash'
+// không có tính năng tree-shaking
+// import { omit } from 'lodash'
+
+// import chỉ mỗi function omit
+import omit from 'lodash/omit'
 import { isAxiosUnprocessableEntityError } from 'src/utils/utils'
 import { ErrorResponse } from 'src/types/utils.type'
 import { useContext } from 'react'
