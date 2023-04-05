@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useNavigate, useParams } from 'react-router-dom'
 import productApi from 'src/apis/product.api'
 import ProductRating from 'src/components/ProductRating'
@@ -9,12 +9,15 @@ import { Product as ProductType } from 'src/types/product.type'
 import Product from '../ProductList/components/Product'
 import QuantityController from 'src/components/QuantityController'
 import purchaseApi from 'src/apis/purchase.api'
-import { useQueryClient } from '@tanstack/react-query'
 import { purchasesStatus } from 'src/constants/purchase'
 import { toast } from 'react-toastify'
 import path from 'src/constants/path'
+import { useTranslation } from 'react-i18next'
+import { Helmet } from 'react-helmet-async'
+import { convert } from 'html-to-text'
 
 export default function ProductDetail() {
+  const { t } = useTranslation('product')
   const navigate = useNavigate()
   const [buyCount, setBuyCount] = useState(1)
   const { nameId } = useParams()
@@ -124,6 +127,17 @@ export default function ProductDetail() {
 
   return (
     <div className='bg-gray-200 py-6'>
+      <Helmet>
+        <title>{product.name} | Shopee Clone</title>
+        <meta
+          name='description'
+          content={convert(product.description, {
+            limits: {
+              maxInputLength: 150
+            }
+          })}
+        />
+      </Helmet>
       <div className='container'>
         <div className='bg-white p-4 shadow'>
           <div className='grid grid-cols-12 gap-9'>
@@ -220,7 +234,9 @@ export default function ProductDetail() {
                   value={buyCount}
                   max={product.quantity}
                 />
-                <div className='ml-6 text-sm text-gray-500'>{product.quantity} Sản phẩm có sẵn</div>
+                <div className='ml-6 text-sm text-gray-500'>
+                  {product.quantity} {t('available')}
+                </div>
               </div>
               <div className='mt-8 flex items-center'>
                 <button

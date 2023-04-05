@@ -12,6 +12,7 @@ import { Category } from 'src/types/category.type'
 import { NoUndefinedField } from 'src/types/utils.type'
 import { Schema, schema } from 'src/utils/rules'
 import RatingStars from '../RatingStars'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   queryConfig: queryConfig
@@ -23,6 +24,7 @@ type FormData = NoUndefinedField<Pick<Schema, 'price_max' | 'price_min'>>
 const priceSchema = schema.pick(['price_min', 'price_max'])
 
 function AsideFilter({ queryConfig, categories }: Props) {
+  const { t } = useTranslation()
   const { category } = queryConfig
   const {
     control,
@@ -79,7 +81,7 @@ function AsideFilter({ queryConfig, categories }: Props) {
             </g>
           </g>
         </svg>
-        Tất cả danh mục
+        {t('aside filter.all categories')}
       </Link>
       <div className='my-4 h-[1px] bg-gray-300'></div>
       <ul>
@@ -128,7 +130,7 @@ function AsideFilter({ queryConfig, categories }: Props) {
             />
           </g>
         </svg>
-        Bộ lọc tìm kiếm
+        {t('aside filter.all categories')}
       </Link>
       <div className='my-4 h-[1px] bg-gray-300'></div>
       <div className='my-5'>
