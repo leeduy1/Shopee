@@ -77,7 +77,7 @@ const handleConfirmPasswordYup = (refString: string) => {
 export const schema = yup.object({
   email: yup
     .string()
-    .required('Email Là bắt buộc')
+    .required('Email là bắt buộc')
     .email('Email không đúng định dạng')
     .min(5, 'Độ dài từ 5 - 160 ký tự')
     .max(160, 'Độ dài từ 5 - 160 ký tự'),
